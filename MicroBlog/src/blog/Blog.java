@@ -1,5 +1,6 @@
 package blog;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import base.*;
 
@@ -105,6 +106,38 @@ public boolean equals(Object obj) {
 public String toString(){
 	//TODO
 	return user+"";
+}
+
+/**
+ * Serch posts created in month and mentioned someone
+ * 
+ * @param month
+ * @param someone
+ */
+public void search(int month, String someone){
+	Calendar cal = Calendar.getInstance();
+	//search from all posts
+	for (Post p: allpost){
+		//get the current post's month (note that Calendar.Month starts
+		//with 0, not 1)
+		cal.setTime(p.getDate());
+		int postMonth = cal.get(Calendar.MONTH)+1;
+		
+		//TODO write your code here
+		if(postMonth==month){
+			if(p.getContent().contains(someone)){
+				System.out.println(p);
+			}
+		}
+	}
+}
+
+/**
+ * Setup the allpost for search
+ * @param allp
+ */
+public void setPosts(ArrayList<Post> allp){
+	allpost=allp;
 }
 
 }

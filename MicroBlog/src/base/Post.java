@@ -8,7 +8,7 @@
 package base;
 import java.util.Date;
 
-public class Post {
+public class Post implements Comparable<Post>{
 	private Date date;
 	private String content;
 
@@ -68,52 +68,38 @@ public class Post {
 		return date +"\n"+ content;
 	}
 	
+@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((content == null) ? 0 : content.hashCode());
+		result = prime * result + ((date == null) ? 0 : date.hashCode());
+		return result;
+	}
+
 	@Override
-	/**
-	 * Check whether this object equals object o
-	 * @param object o
-	 * @return Boolean
-	 */
-	public boolean equals(Object o){
-		boolean ans = true;
-		//Should it be equal compared to itself?
-		if (this ==o) 
+	public boolean equals(Object obj) {
+		if (this == obj)
 			return true;
-		//What if object is null?
-		if(o==null)
+		if (obj == null)
 			return false;
-		//Are they the same class?
-		//You can get the class of object o
-		if(getClass() !=o.getClass())
+		if (getClass() != obj.getClass())
 			return false;
-		
-		//You can transfer object o to POST
-		Post post = (Post) o;
-		
-		//In what circumstance will you think that post A is equal to post B?
-		if(content == null){
-			if(post.content !=null)
+		Post other = (Post) obj;
+		if (content == null) {
+			if (other.content != null)
 				return false;
-		}else if (!content.equals(post.content))
+		} else if (!content.equals(other.content))
 			return false;
-		
-		return ans;
+		if (date == null) {
+			if (other.date != null)
+				return false;
+		} else if (!date.equals(other.date))
+			return false;
+		return true;
 	}
-	
-	@Override
-	public int hashCode(){
-		int hashCode =0;
-		//TODO
-		//You should give hashCode a unique value?
-		//You can use the hashCode of your attributes
-		//date.hashCode();
-		//content.hashCode();
-		final int p=31;
-		hashCode = p*hashCode+((content==null)?0:content.hashCode());
-		
-		return hashCode;
-	}
-	
+
+
 	/**
 	 * check whether this post contains some keyword
 	 * @param keyword
@@ -122,5 +108,12 @@ public class Post {
 	public boolean contains(String keyword){
 		//TODO
 		return content.contains(keyword);
+	}
+	
+	@Override
+	public int compareTo(Post p){
+		//TODO write your code here
+		return this.date.compareTo(p.date);
+
 	}
 }

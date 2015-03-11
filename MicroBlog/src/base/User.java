@@ -1,6 +1,6 @@
 package base;
 
-public class User {
+public class User implements Comparable<User> {
 	private int userId;
 	private String userName;
 	private String userEmail;
@@ -78,5 +78,15 @@ public class User {
 		return true;
 	}
 	
+	@Override
+	public int compareTo(User u){
+		//TODO write your code here
+			if(this.userId>u.getUserId())
+				return 1;
+			else if(this.userId<u.getUserId())
+				return -1;
+			else
+				return 0;
+	}
 	
 }
