@@ -71,6 +71,7 @@ public class TestSortSearch {
 		Blog blog = new Blog(userA);
 		blog.setPosts(allposts);
 		blog.search(2, "Amy");
+		
 
 	}
 
