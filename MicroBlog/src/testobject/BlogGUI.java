@@ -13,12 +13,12 @@ import javax.swing.text.Position;
 
 public class BlogGUI implements ActionListener {
 	
-	private JFrame mainFrame = new JFrame("Micro Blog Demo");
-	private JLabel countChar = new JLabel("Count the input");
-	private JTextArea postTextArea = new JTextArea(10,380);
-	private JTextField postContent = new JTextField("Here is all the post!");
-	private JButton refreshBT = new JButton("Refresh");
-	private JButton postBT = new JButton("Post");
+	private JFrame mainFrame ;
+	private JLabel countChar ;
+	private JTextArea postTextArea ;
+	private JTextField postContent ;
+	private JButton refreshBT ;
+	private JButton postBT ;
 	
 	
 	@Override
@@ -32,7 +32,12 @@ public class BlogGUI implements ActionListener {
 	};
 	
 	public BlogGUI(){
-		
+		mainFrame = new JFrame("Micro Blog Demo");
+		countChar = new JLabel("Count the input");
+		postTextArea = new JTextArea(10,380);
+		postContent = new JTextField("Here is all the post!");
+		refreshBT = new JButton("Refresh");
+		postBT = new JButton("Post");
 	}
 	
 	public void setWindow(){
@@ -44,14 +49,6 @@ public class BlogGUI implements ActionListener {
 		Color c1= new Color(255,255,204);
 		postTextArea.setBackground(c1);
 		
-		/**
-		refreshBT.setBackground(Color.CYAN);
-		refreshBT.setOpaque(true);
-		refreshBT.setBorderPainted(false);
-		postBT.setBackground(Color.blue);
-		postBT.setOpaque(true);
-		postBT.setBorderPainted(false);
-		*/
 		//Set Initial Value
 		postTextArea.setText("What's on your mind?");
 		

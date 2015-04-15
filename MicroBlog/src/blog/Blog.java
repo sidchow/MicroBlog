@@ -180,4 +180,9 @@ public void load(String filepath){
 		e.printStackTrace();
 	}
 }
+
+public ArrayList<Post> getallpost(){
+	return this.allpost;
+}
+
 }
