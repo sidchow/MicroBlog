@@ -39,23 +39,24 @@ public class BlogClient {
 					
 					String userInput;
 					while((userInput=stdIn.readLine())!=null){
+						if(userInput.equals("quit")){
+							out.println(userInput);
 							
 							//--------------------------------------
-							//System.out.println("I am in!!");
+							System.out.println("I am closing!!");
 							//--------------------------------------
 							
+							stdIn.close();
+							in.close();
+							out.close();
+							blogclient.close();
+							
+						}else{
 							out.println(userInput);
 							System.out.println(in.readLine());
+						}
 					}
 					
-					//--------------------------------------
-					System.out.println("I am closing!!");
-					//--------------------------------------
-					
-					stdIn.close();
-					in.close();
-					out.close();
-					blogclient.close();
 						
 					}catch(UnknownHostException exception){
 						System.err.println("Dont know about host "+hostName);

@@ -56,12 +56,14 @@ class ThreadHandler implements Runnable{
 					out.println("You're the "+counter+" visitor today");
 				}
 				else if(inputLine.equals("quit")){
+					System.out.println("Close the Thread for "+counter+" visitor!!");
+					
 					return;
 				}else{
-					out.println(inputLine);
+					out.println("echo: "+inputLine);
 				}
 			}
-		}catch (IOException e)
+		}catch (IOException  e)
 		{
 			e.printStackTrace();
 		}
