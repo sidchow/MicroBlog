@@ -23,14 +23,14 @@ public class BlogClient {
 					System.out.println("Try to connet!!");
 					//--------------------------------------
 					
-					Socket FirstOnlineTest = new Socket(hostName,portNumber);
+					Socket blogclient = new Socket(hostName,portNumber);
 					
 					//--------------------------------------
 					System.out.println("Get ready to start server input and output");
 					//--------------------------------------
 					
-					PrintWriter out = new PrintWriter(FirstOnlineTest.getOutputStream(),true);
-					BufferedReader in = new BufferedReader(new InputStreamReader(FirstOnlineTest.getInputStream()));
+					PrintWriter out = new PrintWriter(blogclient.getOutputStream(),true);
+					BufferedReader in = new BufferedReader(new InputStreamReader(blogclient.getInputStream()));
 					BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
 					
 					//--------------------------------------
@@ -55,7 +55,7 @@ public class BlogClient {
 					stdIn.close();
 					in.close();
 					out.close();
-					FirstOnlineTest.close();
+					blogclient.close();
 						
 					}catch(UnknownHostException exception){
 						System.err.println("Dont know about host "+hostName);
